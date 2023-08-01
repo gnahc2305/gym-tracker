@@ -1,27 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
-import { getServerSession } from "next-auth";
-// import { redirect } from "next/dist/server/api-utils";
-import redirect from 'next/navigation'
-import { Redirect } from "next";
+'use client';
+
+import { redirect } from "next/navigation";
 import { SignInButton } from "@/Components/buttons";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
+  const { data: session, status } = useSession();
 
-  async function checkIfAuthenticated() {
-    const session = await getServerSession();
-  
-    console.log(session);
-
-    // if (session) {
-    //   Redirect('/dashboard');
-    //   redirect('/dashboard');
-    // }
+  if (status === "authenticated") {
+    redirect("/dashboard");
   }
-
-  checkIfAuthenticated();
-
-
 
   return (
     <main>
