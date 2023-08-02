@@ -6,7 +6,12 @@ function NewExercise() {
   const [numberOfExercises, setNumberOfExercises] = useState([""]);
 
   function addExercise() {
-    setNumberOfExercises((current) => [...current, "test"]);
+    if (numberOfExercises.length < 6) {
+      setNumberOfExercises((current) => [...current, "exercise"]);
+    }
+    else {
+      alert('Max Capacity of exercises');
+    }
   }
 
   return (
@@ -18,7 +23,12 @@ function NewExercise() {
           return (
             <div key={i}>
               <label htmlFor={`exercise${i++}`}>Exercise {i++}</label>
-              <input type="text" id={`exercise${i++}`} name={`exercise${i++}`} placeholder="Exercise/Weight/Sets/Reps" />
+              <input
+                type="text"
+                id={`exercise${i++}`}
+                name={`exercise${i++}`}
+                placeholder="Exercise/Weight/Sets/Reps"
+              />
             </div>
           );
         })}
