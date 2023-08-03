@@ -2,9 +2,21 @@ import AuthCheck from "@/components/AuthCheck";
 import Card from "@/components/Card";
 import NewExercise from "@/components/NewExercise";
 import { SignInButton, SignOutButton } from "@/components/buttons";
+import { getServerSession } from "next-auth";
 import React from "react";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { prisma } from "@/lib/prisma";
 
-function dashboard() {
+async function dashboard() {
+  const session = await getServerSession(authOptions);
+
+  const currentUserEmail = session?.user?.email!;
+  const user = await prisma.user.findUnique({
+    where: {
+      email: currentUserEmail,
+    }, 
+  })
+
   return (
     <div>
       <nav>
@@ -25,7 +37,7 @@ function dashboard() {
       <div className="flex p-10">
         <div className="bg-gray-300 p-4">
           <h3 className="">Add new Workout</h3>
-          <NewExercise />
+          <NewExercise user={user} />
         </div>
 
         <div className="ml-14 w-[100%]">
