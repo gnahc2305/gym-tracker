@@ -13,7 +13,7 @@ function NewExercise({ user }: any) {
       alert("Max Capacity of exercises");
     }
   }
-  // console.log(user);
+  // console.log(user.id);
 
   async function createWorkout(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,15 +21,25 @@ function NewExercise({ user }: any) {
     const formData = new FormData(e.currentTarget);
 
     const body = {
-      date: formData.get('date'),
-      exercise1: formData.get('exercise0'),
-      exercise2: formData.get('exercise1'),
-      exercise3: formData.get('exercise2'),
-      exercise4: formData.get('exercise3'),
-      exercise5: formData.get('exercise4'),
-      exercise6: formData.get('exercise5'),
-    }
-    console.log(body);
+      date: formData.get("date"),
+      exercise1: formData.get("exercise0"),
+      exercise2: formData.get("exercise1"),
+      exercise3: formData.get("exercise2"),
+      exercise4: formData.get("exercise3"),
+      exercise5: formData.get("exercise4"),
+      exercise6: formData.get("exercise5"),
+      ownerId: user.id,
+    };
+    // console.log(body);
+
+    //send the body to the api endpoint
+    const res = await fetch("/api/workout", {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log(res);
   }
 
   return (
