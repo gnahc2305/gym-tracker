@@ -9,7 +9,7 @@ export function SignInButton() {
   console.log(session, status);
 
   if (status === "loading") {
-    return <>...</>;
+    return <>Loading Data...</>;
   }
 
   if (status === "authenticated") {

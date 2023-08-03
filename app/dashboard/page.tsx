@@ -2,8 +2,6 @@ import AuthCheck from "@/components/AuthCheck";
 import Card from "@/components/Card";
 import NewExercise from "@/components/NewExercise";
 import { SignInButton, SignOutButton } from "@/components/buttons";
-import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
 import React from "react";
 
 function dashboard() {
@@ -33,7 +31,6 @@ function dashboard() {
         <div className="ml-14 w-[100%]">
           <h1>Previous Workouts</h1>
           <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
-            <Card />
             <Card />
             <Card />
             <Card />
