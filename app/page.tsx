@@ -1,7 +1,7 @@
 'use client';
 
 import { redirect } from "next/navigation";
-import { SignInButton } from "@/Components/buttons";
+import { SignInButton } from "@/components/buttons";
 import { useSession } from "next-auth/react";
 
 export default function Home() {

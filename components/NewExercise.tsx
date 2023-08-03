@@ -14,27 +14,27 @@ function NewExercise() {
   }
 
   return (
-    <div className="mt-10 h-[400px] w-full bg-slate-500">
-      <div className="flex content-center test justify-between">
+    <div className="mt-10 w-full ">
+      <div className="flex content-center mb-4 justify-between">
         <button onClick={addExercise} className="">
           Add Exercise
         </button>
         <button>Reset</button>
       </div>
-      <form action="" className="flex flex-col test">
-        <div className="flex justify-between content-center test">
+      <form action="" className="flex flex-col mb-4">
+        <div className="flex justify-between content-center mb-4">
           <input type="date" id="date" name="date" required />
           <button className="">Submit</button>
         </div>
 
         {numberOfExercises.map(function (object, i) {
           return (
-            <div key={i}>
+            <div key={i} className="flex items-center mb-4">
               <label className="" htmlFor={`exercise${i++}`}>
-                Exercise {i++}{" "}
+                Exercise{i++}
               </label>
               <input
-                className="test p-4"
+                className=" p-4 rounded-xl"
                 type="text"
                 id={`exercise${i++}`}
                 name={`exercise${i++}`}

@@ -1,12 +1,12 @@
-import AuthCheck from "@/Components/AuthCheck";
-import NewExercise from "@/Components/NewExercise";
-import { SignInButton, SignOutButton } from "@/Components/buttons";
+import AuthCheck from "@/components/AuthCheck";
+import Card from "@/components/Card";
+import NewExercise from "@/components/NewExercise";
+import { SignInButton, SignOutButton } from "@/components/buttons";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import React from "react";
 
 function dashboard() {
-
   return (
     <div>
       <nav>
@@ -21,16 +21,18 @@ function dashboard() {
             </AuthCheck>
           </div>
         </div>
+        <p className="pl-10">Insert details of workout, and record progress</p>
       </nav>
 
       <div className="flex p-10">
         <div className="bg-gray-300 p-4">
-          <h3 className="mb-3">Insert details of workout</h3>
+          <h3 className="">Add new Workout</h3>
           <NewExercise />
         </div>
 
-        <div className="ml-14">
-          Tables
+        <div className="ml-14 w-[100%]">
+          <h1>Previous Workouts</h1> 
+          <Card />
         </div>
       </div>
     </div>
