@@ -24,8 +24,8 @@ function dashboard() {
       </nav>
 
       <div className="flex p-10">
-        <div className="bg-gray-300">
-          <h3>Insert details of workout, and record progress</h3>
+        <div className="bg-gray-300 p-4">
+          <h3 className="mb-3">Insert details of workout</h3>
           <NewExercise />
         </div>
 

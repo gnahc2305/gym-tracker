@@ -8,22 +8,33 @@ function NewExercise() {
   function addExercise() {
     if (numberOfExercises.length < 6) {
       setNumberOfExercises((current) => [...current, "exercise"]);
-    }
-    else {
-      alert('Max Capacity of exercises');
+    } else {
+      alert("Max Capacity of exercises");
     }
   }
 
   return (
     <div className="mt-10 h-[400px] w-full bg-slate-500">
-      <button onClick={addExercise}>Add Exercise</button>
-      <form action="" className="flex flex-col">
-        <input type="date" id="date" name="date" required />
+      <div className="flex content-center test justify-between">
+        <button onClick={addExercise} className="">
+          Add Exercise
+        </button>
+        <button>Reset</button>
+      </div>
+      <form action="" className="flex flex-col test">
+        <div className="flex justify-between content-center test">
+          <input type="date" id="date" name="date" required />
+          <button className="">Submit</button>
+        </div>
+
         {numberOfExercises.map(function (object, i) {
           return (
             <div key={i}>
-              <label htmlFor={`exercise${i++}`}>Exercise {i++}</label>
+              <label className="" htmlFor={`exercise${i++}`}>
+                Exercise {i++}{" "}
+              </label>
               <input
+                className="test p-4"
                 type="text"
                 id={`exercise${i++}`}
                 name={`exercise${i++}`}
