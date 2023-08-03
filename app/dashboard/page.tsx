@@ -31,8 +31,14 @@ function dashboard() {
         </div>
 
         <div className="ml-14 w-[100%]">
-          <h1>Previous Workouts</h1> 
-          <Card />
+          <h1>Previous Workouts</h1>
+          <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
         </div>
       </div>
     </div>
