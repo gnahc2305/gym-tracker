@@ -30,7 +30,6 @@ function NewExercise({ user }: any) {
       exercise6: formData.get("exercise5"),
       ownerId: user.id,
     };
-    // console.log(body);
 
     //send the body to the api endpoint
     const res = await fetch("/api/workout", {

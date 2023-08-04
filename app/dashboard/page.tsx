@@ -17,7 +17,11 @@ async function dashboard() {
     },
   });
 
-  const workouts = await prisma.workout.findMany()
+  const workouts = await prisma.workout.findMany({
+    where: {
+      ownerId: user?.id,
+    }
+  })
   // console.log(workouts);
 
   return (
