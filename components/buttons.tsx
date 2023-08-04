@@ -14,6 +14,7 @@ export function SignInButton() {
 
   if (status === "authenticated") {
     return (
+      // <h1>Hello {session?.user?.name}</h1>
       <Image
         src={session?.user?.image ?? "/mememan.webp"}
         width={50}

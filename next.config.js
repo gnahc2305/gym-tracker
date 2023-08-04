@@ -12,6 +12,7 @@ const nextConfig = {
         pathname: "/u/**",
       },
     ],
+    domains: ['lh3.googleusercontent.com'],
   },
 };
 
