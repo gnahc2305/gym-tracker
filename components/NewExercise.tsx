@@ -13,13 +13,13 @@ function NewExercise({ user }: any) {
       alert("Max Capacity of exercises");
     }
   }
-  // console.log(user.id);
 
   async function createWorkout(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
 
+    // set the body of the POST request with the userID
     const body = {
       date: formData.get("date"),
       exercise1: formData.get("exercise0"),

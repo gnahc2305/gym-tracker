@@ -14,8 +14,11 @@ async function dashboard() {
   const user = await prisma.user.findUnique({
     where: {
       email: currentUserEmail,
-    }, 
-  })
+    },
+  });
+
+  const workouts = await prisma.workout.findMany()
+  // console.log(workouts);
 
   return (
     <div>
@@ -43,10 +46,11 @@ async function dashboard() {
         <div className="ml-14 w-[100%]">
           <h1>Previous Workouts</h1>
           <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {/* TODO: Make the data dynamic (refresh server component) */}
+            {workouts.map((workout, i) => {
+              return <div key={i}>{workout.id}</div>
+            })}
+            {/* <Card /> */}
           </div>
         </div>
       </div>
