@@ -1,18 +1,28 @@
-import React from 'react'
+import React from "react";
 
-function Card() {
-  let demo: string = 'Machine Chest Press/100Kg/10/14'
-  let date: string = '23/23/2004'
+function Card({
+  workout: {
+    date,
+    exercise1,
+    exercise2,
+    exercise3,
+    exercise4,
+    exercise5,
+    exercise6,
+  },
+}: any) {
 
   return (
-    <div className='h-[200px] w-[275px] bg-slate-300 p-2 rounded-md'>
-        <h2 className='mb-3'>{date}</h2>
-        <h1 className='mb-2'>{demo}</h1>
-        <h1 className='mb-2'>{demo}</h1>
-        <h1 className='mb-2'>{demo}</h1>
-        <h1 className='mb-2'>{demo}</h1>
+    <div className="h-auto w-[275px] bg-slate-300 p-2 rounded-md">
+      <h2 className="mb-3">{date}</h2>
+      <h1 className='mb-2'>{exercise1}</h1>
+      <h1 className='mb-2'>{exercise2}</h1>
+      <h1 className='mb-2'>{exercise3}</h1>
+      <h1 className='mb-2'>{exercise4}</h1>
+      <h1 className='mb-2'>{exercise5}</h1>
+      <h1 className='mb-2'>{exercise6}</h1>
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;

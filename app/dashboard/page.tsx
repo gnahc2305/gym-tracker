@@ -17,12 +17,12 @@ async function dashboard() {
     },
   });
 
+  // check all of the workouts in the database that match the owner
   const workouts = await prisma.workout.findMany({
     where: {
       ownerId: user?.id,
     }
   })
-  // console.log(workouts);
 
   return (
     <div>
@@ -52,7 +52,8 @@ async function dashboard() {
           <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
             {/* TODO: Make the data dynamic (refresh server component) */}
             {workouts.map((workout, i) => {
-              return <div key={i}>{workout.id}</div>
+              // return <div key={i}>{workout.id}</div>
+              return <Card key={i} workout={workout} />
             })}
             {/* <Card /> */}
           </div>
