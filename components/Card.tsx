@@ -1,3 +1,7 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { prisma } from "@/lib/prisma";
+import { getServerSession } from "next-auth";
+import { revalidatePath } from "next/cache";
 import React from "react";
 
 function Card({
@@ -9,8 +13,22 @@ function Card({
     exercise4,
     exercise5,
     exercise6,
+    id,
   },
 }: any) {
+
+  async function deleteWorkout() {
+    "use server";
+    const session = await getServerSession(authOptions);
+
+    const deletedWorkout = await prisma.workout.delete({
+      where: {
+        id: id,
+      }
+    })
+    console.log(deletedWorkout);
+    revalidatePath('/dashboard');
+  }
 
   return (
     <div className="h-auto w-[275px] bg-slate-300 p-2 rounded-md">
@@ -22,7 +40,9 @@ function Card({
       <h1 className='mb-2'>{exercise5}</h1>
       <h1 className='mb-2'>{exercise6}</h1>
 
-      <button className="">Delete Workout</button>
+      <form action={deleteWorkout}>
+        <button className="text-red-900">Delete Workout</button>
+      </form>
     </div>
   );
 }

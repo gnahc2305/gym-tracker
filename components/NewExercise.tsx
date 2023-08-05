@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 
 function NewExercise({ user }: any) {
   // const [numberOfExercises, setNumberOfExercises] = useState([""]);
-  let numberOfExercises = ["ex1", "ex2", "ex3", "ex4", "ex5", "ex6"]; 
+  let numberOfExercises = ["ex1", "ex2", "ex3", "ex4", "ex5", "ex6"];
 
   // function addExercise() {
   //   if (numberOfExercises.length < 6) {
@@ -19,25 +19,32 @@ function NewExercise({ user }: any) {
   // async function createWorkout(e: React.FormEvent<HTMLFormElement>) {
   async function createWorkout(formData: FormData) {
     "use server";
-    const session = getServerSession(authOptions)
+    const session = getServerSession(authOptions);
 
     // const formData = new FormData(e.currentTarget);
 
     // update the database with the form data
     const workout = await prisma.workout.create({
       data: {
+        // @ts-ignore
         date: formData.get("date"),
+        // @ts-ignore
         exercise1: formData.get("exercise0"),
+        // @ts-ignore
         exercise2: formData.get("exercise1"),
+        // @ts-ignore
         exercise3: formData.get("exercise2"),
+        // @ts-ignore
         exercise4: formData.get("exercise3"),
+        // @ts-ignore
         exercise5: formData.get("exercise4"),
+        // @ts-ignore
         exercise6: formData.get("exercise5"),
         ownerId: user.id,
       },
     });
 
-    revalidatePath('/dashboard');
+    revalidatePath("/dashboard");
     console.log(workout);
 
     //send the body to the api endpoint
@@ -75,7 +82,7 @@ function NewExercise({ user }: any) {
                 type="text"
                 name={`exercise${i}`}
                 placeholder="Exercise/Weight/Sets/Reps"
-                // defaultValue="Exercise/Weight/Sets/Reps"
+                required
               />
             </div>
           );
