@@ -53,10 +53,8 @@ async function dashboard() {
             {/* TODO: Make the data dynamic (refresh server component) */}
             {/* TODO: Make the /dashboard route inaccesible to unathenticated users */}
             {workouts.map((workout, i) => {
-              // return <div key={i}>{workout.id}</div>
               return <Card key={i} workout={workout} />
             })}
-            {/* <Card /> */}
           </div>
         </div>
       </div>

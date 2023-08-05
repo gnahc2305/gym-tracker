@@ -5,23 +5,11 @@ import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
 function NewExercise({ user }: any) {
-  // const [numberOfExercises, setNumberOfExercises] = useState([""]);
   let numberOfExercises = ["ex1", "ex2", "ex3", "ex4", "ex5", "ex6"];
 
-  // function addExercise() {
-  //   if (numberOfExercises.length < 6) {
-  //     setNumberOfExercises((current) => [...current, "exercise"]);
-  //   } else {
-  //     alert("Max Capacity of exercises");
-  //   }
-  // }
-
-  // async function createWorkout(e: React.FormEvent<HTMLFormElement>) {
   async function createWorkout(formData: FormData) {
     "use server";
     const session = getServerSession(authOptions);
-
-    // const formData = new FormData(e.currentTarget);
 
     // update the database with the form data
     const workout = await prisma.workout.create({
@@ -46,29 +34,13 @@ function NewExercise({ user }: any) {
 
     revalidatePath("/dashboard");
     console.log(workout);
-
-    //send the body to the api endpoint
-    // const res = await fetch("/api/workout", {
-    //   method: "POST",
-    //   body: JSON.stringify(body),
-    //   headers: { "Content-Type": "application/json" },
-    // });
-
-    // console.log(res);
   }
 
   return (
     <div className="mt-10 w-full ">
-      <div className="flex content-center mb-4 justify-between">
-        {/* <button onClick={addExercise} className="">
-          Add Exercise
-        </button> */}
-        <button>Reset</button>
-      </div>
       <form action={createWorkout} className="flex flex-col mb-4">
-        <div className="flex justify-between content-center mb-4">
+        <div className="mb-4 text-center">
           <input type="date" name="date" required />
-          <button className="">Submit</button>
         </div>
 
         {numberOfExercises.map(function (object, i) {
@@ -87,6 +59,7 @@ function NewExercise({ user }: any) {
             </div>
           );
         })}
+        <button className="mb-[-10px] mt-[5px]">Submit</button>
       </form>
     </div>
   );
