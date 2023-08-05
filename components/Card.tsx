@@ -21,6 +21,8 @@ function Card({
       <h1 className='mb-2'>{exercise4}</h1>
       <h1 className='mb-2'>{exercise5}</h1>
       <h1 className='mb-2'>{exercise6}</h1>
+
+      <button className="">Delete Workout</button>
     </div>
   );
 }

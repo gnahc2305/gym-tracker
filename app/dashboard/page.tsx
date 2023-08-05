@@ -51,6 +51,7 @@ async function dashboard() {
           <h1>Previous Workouts</h1>
           <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
             {/* TODO: Make the data dynamic (refresh server component) */}
+            {/* TODO: Make the /dashboard route inaccesible to unathenticated users */}
             {workouts.map((workout, i) => {
               // return <div key={i}>{workout.id}</div>
               return <Card key={i} workout={workout} />
