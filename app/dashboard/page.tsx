@@ -12,7 +12,7 @@ async function dashboard() {
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    redirect('/');
+    redirect("/");
   }
 
   const currentUserEmail = session?.user?.email!;
@@ -26,8 +26,10 @@ async function dashboard() {
   const workouts = await prisma.workout.findMany({
     where: {
       ownerId: user?.id,
-    }
-  })
+    },
+  });
+
+  console.log(workouts);
 
   return (
     <div>
@@ -43,7 +45,9 @@ async function dashboard() {
             </AuthCheck>
           </div>
         </div>
-        <p className="pl-10 text-white">Insert details of workout, and record progress</p>
+        <p className="pl-10 text-white">
+          Insert details of workout, and record progress
+        </p>
       </nav>
 
       <div className="flex p-10">
@@ -55,9 +59,14 @@ async function dashboard() {
         <div className="ml-14 w-[100%]">
           <h1 className="text-white">Previous Workouts</h1>
           <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
-            {workouts.map((workout, i) => {
-              return <Card key={i} workout={workout} />
-            })}
+            {/* If there are no workouts, render a <p> tag */}
+            {workouts.length < 1 ? (
+              <p className="text-white">You dont have any workouts created</p>
+            ) : (
+              workouts.map((workout, i) => {
+                return <Card key={i} workout={workout} />;
+              })
+            )}
           </div>
         </div>
       </div>
