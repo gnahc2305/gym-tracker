@@ -25,6 +25,32 @@ export default async function WorkoutId({ params }: Props) {
     },
   });
 
+  async function updateWorkout(formData: FormData) {
+    "use server";
+
+    const updatedWorkout = await prisma.workout.update({
+      where: {
+        id: params.id,
+      },
+      data: {
+        // @ts-ignore
+        exercise1: formData.get("exercise1"),
+        // @ts-ignore
+        exercise2: formData.get("exercise2"),
+        // @ts-ignore
+        exercise3: formData.get("exercise3"),
+        // @ts-ignore
+        exercise4: formData.get("exercise4"),
+        // @ts-ignore
+        exercise5: formData.get("exercise5"),
+        // @ts-ignore
+        exercise6: formData.get("exercise6"),
+      },
+    });
+    console.log(updatedWorkout);
+    redirect('/dashboard');
+  }
+
   return (
     <div className="">
       <nav>
@@ -41,7 +67,7 @@ export default async function WorkoutId({ params }: Props) {
 
       <h1 className="text-white text-center">Edit Workout</h1>
       <div className="text-center">
-        <form>
+        <form action={updateWorkout}>
           <input
             type="text"
             name="exercise1"
