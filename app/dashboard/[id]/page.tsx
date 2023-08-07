@@ -48,7 +48,19 @@ export default async function WorkoutId({ params }: Props) {
       },
     });
     console.log(updatedWorkout);
-    redirect('/dashboard');
+    redirect("/dashboard");
+  }
+
+  async function deleteWorkout() {
+    "use server";
+
+    const deletedWorkout = await prisma.workout.delete({
+      where: {
+        id: params.id,
+      },
+    });
+    console.log(deletedWorkout);
+    redirect("/dashboard");
   }
 
   return (
@@ -111,6 +123,9 @@ export default async function WorkoutId({ params }: Props) {
           />
           <br />
           <button className="text-white">Save Changes</button>
+        </form>
+        <form action={deleteWorkout}>
+          <button className="text-red-900">Delete Workout</button>
         </form>
       </div>
     </div>

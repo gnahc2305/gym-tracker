@@ -17,18 +17,18 @@ function Card({
     id,
   },
 }: any) {
-  async function deleteWorkout() {
-    "use server";
-    const session = await getServerSession(authOptions);
+  // async function deleteWorkout() {
+  //   "use server";
+  //   const session = await getServerSession(authOptions);
 
-    const deletedWorkout = await prisma.workout.delete({
-      where: {
-        id: id,
-      },
-    });
-    console.log(deletedWorkout);
-    revalidatePath("/dashboard");
-  }
+  //   const deletedWorkout = await prisma.workout.delete({
+  //     where: {
+  //       id: id,
+  //     },
+  //   });
+  //   console.log(deletedWorkout);
+  //   revalidatePath("/dashboard");
+  // }
 
   return (
     <Link href={`/dashboard/${id}`}>
@@ -41,9 +41,9 @@ function Card({
         <h1 className="mb-2">{exercise5}</h1>
         <h1 className="mb-2">{exercise6}</h1>
 
-        <form action={deleteWorkout}>
+        {/* <form action={deleteWorkout}>
           <button className="text-red-900">Delete Workout</button>
-        </form>
+        </form> */}
       </div>
     </Link>
   );
