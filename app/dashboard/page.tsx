@@ -34,7 +34,9 @@ async function dashboard() {
     <div>
       <nav>
         <div className="flex p-10 text-[30px] text-white">
-          <h1>Gym Tracker</h1>
+          <h1 className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            Gym Tracker
+          </h1>
           <div className="ml-auto flex">
             <div className="pr-10">
               <SignInButton />
@@ -42,19 +44,19 @@ async function dashboard() {
             <SignOutButton />
           </div>
         </div>
-        <p className="pl-10 text-white">
+        <p className="pl-10 text-white text-xl">
           Insert details of workout, and record progress
         </p>
       </nav>
 
       <div className="flex p-10">
-        <div className="bg-gray-300 p-4">
+        <div className="bg-[#20252D] p-4 text-white">
           <h3 className="">Add new Workout</h3>
           <NewExercise user={user} />
         </div>
 
         <div className="ml-14 w-[100%]">
-          <h1 className="text-white">Previous Workouts</h1>
+          <h1 className="text-white text-xl">Previous Workouts: </h1>
           <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
             {/* If there are no workouts, render a <p> tag */}
             {workouts.length < 1 ? (

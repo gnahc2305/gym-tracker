@@ -39,7 +39,7 @@ function NewExercise({ user }: any) {
   return (
     <div className="mt-10 w-full ">
       <form action={createWorkout} className="flex flex-col mb-4">
-        <div className="mb-4 text-center">
+        <div className="mb-4 text-center text-black">
           <input type="date" name="date" required />
         </div>
 
@@ -50,7 +50,7 @@ function NewExercise({ user }: any) {
                 Exercise{i + 1}
               </label>
               <input
-                className=" p-4 rounded-xl"
+                className=" p-4 rounded-xl text-black"
                 type="text"
                 name={`exercise${i}`}
                 placeholder="Exercise/Weight/Sets/Reps"

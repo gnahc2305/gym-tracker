@@ -6,9 +6,9 @@ import Image from "next/image";
 export function SignInButton() {
   const { data: session, status } = useSession();
 
-  // if (status === "loading") {
-  //   return <>Loading Data...</>;
-  // }
+  if (status === "loading") {
+    return <>Loading</>;
+  }
 
   if (status === "authenticated") {
     return (
