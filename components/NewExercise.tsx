@@ -37,20 +37,20 @@ function NewExercise({ user }: any) {
   }
 
   return (
-    <div className="mt-10 w-full ">
-      <form action={createWorkout} className="flex flex-col mb-4">
-        <div className="mb-4 text-center text-black">
+    <div className="mt-3">
+      <form action={createWorkout} className="mb-2">
+        <div className="mb-4 text-black">
           <input type="date" name="date" required />
         </div>
 
         {numberOfExercises.map(function (object, i) {
           return (
-            <div key={i} className="flex items-center mb-4">
+            <div key={i} className="mb-4">
               <label className="" htmlFor={`exercise${i}`}>
-                Exercise{i + 1}
+                Exercise{i + 1}:
               </label>
               <input
-                className=" p-4 rounded-xl text-black"
+                className=" p-4 rounded-md text-black"
                 type="text"
                 name={`exercise${i}`}
                 placeholder="Exercise/Weight/Sets/Reps"
@@ -59,7 +59,7 @@ function NewExercise({ user }: any) {
             </div>
           );
         })}
-        <button className="mb-[-10px] mt-[5px]">Submit</button>
+        <button className="bg-[#10B981] p-1 rounded-md">Submit</button>
       </form>
     </div>
   );

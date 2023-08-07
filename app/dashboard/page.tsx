@@ -50,7 +50,7 @@ async function dashboard() {
       </nav>
 
       <div className="flex p-10">
-        <div className="bg-[#20252D] p-4 text-white">
+        <div className="bg-[#20252D] p-4 text-white rounded-md">
           <h3 className="">Add new Workout</h3>
           <NewExercise user={user} />
         </div>
