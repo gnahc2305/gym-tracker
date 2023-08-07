@@ -6,9 +6,14 @@ import { getServerSession } from "next-auth";
 import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
+import { redirect } from "next/navigation";
 
 async function dashboard() {
   const session = await getServerSession(authOptions);
+
+  if (!session) {
+    redirect('/');
+  }
 
   const currentUserEmail = session?.user?.email!;
   const user = await prisma.user.findUnique({
@@ -27,7 +32,7 @@ async function dashboard() {
   return (
     <div>
       <nav>
-        <div className="flex p-10 text-[30px]">
+        <div className="flex p-10 text-[30px] text-white">
           <h1>Gym Tracker</h1>
           <div className="ml-auto flex">
             <div className="pr-10">
@@ -38,7 +43,7 @@ async function dashboard() {
             </AuthCheck>
           </div>
         </div>
-        <p className="pl-10">Insert details of workout, and record progress</p>
+        <p className="pl-10 text-white">Insert details of workout, and record progress</p>
       </nav>
 
       <div className="flex p-10">
@@ -48,10 +53,8 @@ async function dashboard() {
         </div>
 
         <div className="ml-14 w-[100%]">
-          <h1>Previous Workouts</h1>
+          <h1 className="text-white">Previous Workouts</h1>
           <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
-            {/* TODO: Make the data dynamic (refresh server component) */}
-            {/* TODO: Make the /dashboard route inaccesible to unathenticated users */}
             {workouts.map((workout, i) => {
               return <Card key={i} workout={workout} />
             })}
