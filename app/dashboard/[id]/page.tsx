@@ -4,7 +4,6 @@ import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { SignInButton, SignOutButton } from "@/components/buttons";
-import AuthCheck from "@/components/AuthCheck";
 
 interface Props {
   params: {
@@ -14,16 +13,28 @@ interface Props {
 
 export default async function WorkoutId({ params }: Props) {
   const session = await getServerSession(authOptions);
-
   if (!session) {
     redirect("/");
   }
 
+  // get the user thats currently logged in
+  const user = await prisma.user.findUnique({
+    where: {
+      email: session?.user?.email!,
+    },
+  });
+
+  // get the workout
   const workout = await prisma.workout.findUnique({
     where: {
       id: params.id,
     },
   });
+
+  // if the owner id of the workout isn't the same the current user redirect them to the home page
+  if (user?.id != workout?.ownerId) {
+    redirect("/");
+  }
 
   async function updateWorkout(formData: FormData) {
     "use server";
