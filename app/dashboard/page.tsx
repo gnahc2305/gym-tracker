@@ -1,4 +1,3 @@
-import AuthCheck from "@/components/AuthCheck";
 import Card from "@/components/Card";
 import NewExercise from "@/components/NewExercise";
 import { SignInButton, SignOutButton } from "@/components/buttons";
@@ -40,9 +39,7 @@ async function dashboard() {
             <div className="pr-10">
               <SignInButton />
             </div>
-            <AuthCheck>
-              <SignOutButton />
-            </AuthCheck>
+            <SignOutButton />
           </div>
         </div>
         <p className="pl-10 text-white">
