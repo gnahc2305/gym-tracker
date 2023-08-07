@@ -13,6 +13,5 @@ export default function AuthCheck({ children }: { children: React.ReactNode }) {
         return <>{children}</>
     } else {
         redirect('/');
-        return <>Not logged in to see this</>
     }
 }
