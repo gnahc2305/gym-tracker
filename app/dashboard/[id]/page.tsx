@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { SignInButton, SignOutButton } from "@/components/buttons";
+import Link from "next/link";
 
 interface Props {
   params: {
@@ -12,6 +13,10 @@ interface Props {
 }
 
 const formStyle = 'rounded-md p-2 text-lg'
+
+export const metadata: Metadata = {
+  title: "Workout",
+}
 
 export default async function WorkoutId({ params }: Props) {
   const session = await getServerSession(authOptions);
@@ -80,7 +85,9 @@ export default async function WorkoutId({ params }: Props) {
     <div className="">
       <nav>
         <div className="flex p-10 text-[30px] text-white">
-          <h1>Gym Tracker</h1>
+          <Link href='/dashboard'>
+            <h1>Gym Tracker</h1>
+          </Link>
           <div className="ml-auto flex">
             <div className="pr-10">
               <SignInButton />
@@ -90,7 +97,7 @@ export default async function WorkoutId({ params }: Props) {
         </div>
       </nav>
 
-      <h1 className="text-white text-center">Edit Workout:</h1>
+      <h1 className="text-white text-center mb-5 text-3xl">Edit Workout:</h1>
       <div className="w-[50%] m-auto">
         <form action={updateWorkout} className="flex flex-col items-center justify-center">
           <input name="exercise1" defaultValue={workout?.exercise1!} required className={formStyle} />

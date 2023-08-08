@@ -6,6 +6,11 @@ import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gym Tracker"
+}
 
 async function dashboard() {
   const session = await getServerSession(authOptions);
