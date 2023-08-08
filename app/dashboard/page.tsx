@@ -55,9 +55,9 @@ async function dashboard() {
           <NewExercise user={user} />
         </div>
 
-        <div className="ml-14 w-[100%]">
+        <div className="ml-14 w-[100%] mr-5">
           <h1 className="text-white text-xl">Previous Workouts: </h1>
-          <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2">
+          <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 gap-x-5">
             {/* If there are no workouts, render a <p> tag */}
             {workouts.length < 1 ? (
               <p className="text-white">You dont have any workouts created</p>

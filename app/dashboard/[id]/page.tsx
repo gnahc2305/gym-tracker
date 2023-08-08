@@ -11,6 +11,8 @@ interface Props {
   };
 }
 
+const formStyle = 'rounded-md p-2 text-lg'
+
 export default async function WorkoutId({ params }: Props) {
   const session = await getServerSession(authOptions);
   if (!session) {
@@ -88,55 +90,25 @@ export default async function WorkoutId({ params }: Props) {
         </div>
       </nav>
 
-      <h1 className="text-white text-center">Edit Workout</h1>
-      <div className="text-center">
-        <form action={updateWorkout}>
-          <input
-            type="text"
-            name="exercise1"
-            defaultValue={workout?.exercise1!}
-            required
-          />
+      <h1 className="text-white text-center">Edit Workout:</h1>
+      <div className="w-[50%] m-auto">
+        <form action={updateWorkout} className="flex flex-col items-center justify-center">
+          <input name="exercise1" defaultValue={workout?.exercise1!} required className={formStyle} />
           <br />
-          <input
-            type="text"
-            name="exercise2"
-            defaultValue={workout?.exercise2!}
-            required
-          />
+          <input name="exercise2" defaultValue={workout?.exercise2!} required className={formStyle} />
           <br />
-          <input
-            type="text"
-            name="exercise3"
-            defaultValue={workout?.exercise3!}
-            required
-          />
+          <input name="exercise3" defaultValue={workout?.exercise3!} required className={formStyle} />
           <br />
-          <input
-            type="text"
-            name="exercise4"
-            defaultValue={workout?.exercise4!}
-            required
-          />
+          <input name="exercise4" defaultValue={workout?.exercise4!} required className={formStyle} />
           <br />
-          <input
-            type="text"
-            name="exercise5"
-            defaultValue={workout?.exercise5!}
-            required
-          />
+          <input name="exercise5" defaultValue={workout?.exercise5!} required className={formStyle} />
           <br />
-          <input
-            type="text"
-            name="exercise6"
-            defaultValue={workout?.exercise6!}
-            required
-          />
+          <input name="exercise6" defaultValue={workout?.exercise6!} required className={formStyle} />
           <br />
-          <button className="text-white">Save Changes</button>
+          <button className="text-white bg-[#10B981] p-2 rounded-md w-[150px]">Save Changes</button>
         </form>
-        <form action={deleteWorkout}>
-          <button className="text-red-900">Delete Workout</button>
+        <form action={deleteWorkout} className="text-center">
+          <button className="bg-red-600 text-white p-2 rounded-md mt-3 w-[150px]">Delete Workout</button>
         </form>
       </div>
     </div>
