@@ -54,15 +54,15 @@ async function dashboard() {
         </p>
       </nav>
 
-      <div className="flex p-10">
-        <div className="bg-[#20252D] p-4 text-white rounded-md">
+      <div className="p-10 sm:flex">
+        <div className="bg-[#20252D] p-4 text-white rounded-md mb-[30px] sm:mb-0">
           <h3 className="">Add new Workout</h3>
           <NewExercise user={user} />
         </div>
 
-        <div className="ml-14 w-[100%] mr-5">
+        <div className="sm:ml-14 w-[100%] mr-5">
           <h1 className="text-white text-xl">Previous Workouts: </h1>
-          <div className="mt-2 mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 gap-x-5">
+          <div className="mt-2 sm:mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 gap-x-5">
             {/* If there are no workouts, render a <p> tag */}
             {workouts.length < 1 ? (
               <p className="text-white">You dont have any workouts created</p>
