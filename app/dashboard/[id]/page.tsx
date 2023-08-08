@@ -89,7 +89,7 @@ export default async function WorkoutId({ params }: Props) {
             <h1 className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Gym Tracker</h1>
           </Link>
           <div className="ml-auto flex">
-            <div className="pr-10">
+            <div className="sm:pr-10 self-center">
               <SignInButton />
             </div>
             <SignOutButton />

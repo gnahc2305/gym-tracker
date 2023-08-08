@@ -17,11 +17,11 @@ export default function Home() {
         <h1 className="font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Gym Tracker</h1>
       </div>
 
-      <div className="flex flex-col items-center text-[30px] pt-24 text-white">
-        <p className="pb-2">Log workouts and save them on your account</p>
+      <div className="flex flex-col text-center text-[30px] pt-24 text-white">
+        <p className="pb-2">Log your training</p>
         <p className="pb-2">Track your progress</p>
-        <p>Take control of your workouts and achieve your fitness goals</p>
-        <div className="mt-10 bg-gradient-to-r from-purple-400 to-pink-600 p-2 rounded-md">
+        <p>Take control of your workouts</p>
+        <div className="mt-10 bg-gradient-to-r from-purple-400 to-pink-600 p-2 rounded-md self-center">
           <SignInButton />
         </div>
       </div>

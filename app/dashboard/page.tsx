@@ -43,7 +43,7 @@ async function dashboard() {
             Gym Tracker
           </h1>
           <div className="ml-auto flex">
-            <div className="pr-10">
+            <div className="sm:pr-10 self-center">
               <SignInButton />
             </div>
             <SignOutButton />
