@@ -82,7 +82,7 @@ export default async function WorkoutId({ params }: Props) {
   }
 
   return (
-    <div className="">
+    <div className="mb-[150px]">
       <nav>
         <div className="flex p-10 text-[30px] text-white">
           <Link href='/dashboard'>

@@ -17,7 +17,7 @@ export default function Home() {
         <h1 className="font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Gym Tracker</h1>
       </div>
 
-      <div className="flex flex-col text-center text-[30px] pt-24 text-white">
+      <div className="flex flex-col text-center text-[30px] pt-24 text-white mb-[20rem]">
         <p className="pb-2">Log your training</p>
         <p className="pb-2">Track your progress</p>
         <p>Take control of your workouts</p>
