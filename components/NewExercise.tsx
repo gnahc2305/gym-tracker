@@ -3,9 +3,10 @@ import { getServerSession } from "next-auth";
 import React from "react";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import SubmitButton from "./SubmitButton";
 
 function NewExercise({ user }: any) {
-  let numberOfExercises = ["ex1", "ex2", "ex3", "ex4", "ex5", "ex6"];
+  const numberOfExercises = ["ex1", "ex2", "ex3", "ex4", "ex5", "ex6"];
 
   async function createWorkout(formData: FormData) {
     "use server";
@@ -59,7 +60,8 @@ function NewExercise({ user }: any) {
             </div>
           );
         })}
-        <button className="bg-[#10B981] p-1 rounded-md">Submit</button>
+        {/* <button className="bg-[#10B981] p-1 rounded-md">Submit</button> */}
+        <SubmitButton />
       </form>
     </div>
   );
