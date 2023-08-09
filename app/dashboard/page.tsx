@@ -65,7 +65,7 @@ async function dashboard() {
           <div className="mt-2 sm:mr-[-30px] grid gap-y-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 gap-x-5">
             {/* If there are no workouts, render a <p> tag */}
             {workouts.length < 1 ? (
-              <p className="text-white">You dont have any workouts created</p>
+              <p className="text-white">You do not have any workouts created</p>
             ) : (
               workouts.map((workout, i) => {
                 return <Card key={i} workout={workout} />;
