@@ -60,7 +60,6 @@ function NewExercise({ user }: any) {
             </div>
           );
         })}
-        {/* <button className="bg-[#10B981] p-1 rounded-md">Submit</button> */}
         <SubmitButton />
       </form>
     </div>

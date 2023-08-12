@@ -14,7 +14,7 @@ function Card({
   },
 }: any) {
   return (
-    <Link href={`/dashboard/${id}`}>
+    <Link href={`/dashboard/${id}`} prefetch={false}>
       <div className=" bg-white py-2 px-5 text-lg rounded-md h-full hover:bg-blue-200">
         <h2 className="mb-3 text-[20px]">{date}</h2>
         <h1 className="mb-2">{exercise1}</h1>

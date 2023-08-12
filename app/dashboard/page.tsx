@@ -50,7 +50,7 @@ async function dashboard() {
           </div>
         </div>
         <p className="pl-10 text-white text-xl">
-          Insert details of workout, and record progress
+          Insert details of workout, record progress
         </p>
       </nav>
 

@@ -7,6 +7,7 @@ import { SignInButton, SignOutButton } from "@/components/buttons";
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
 
+
 interface Props {
   params: {
     id: string;
@@ -79,8 +80,7 @@ export default async function WorkoutId({ params }: Props) {
       },
     });
     console.log(deletedWorkout);
-    revalidatePath("/dashboard");
-    // redirect("/dashboard");
+    redirect("/dashboard");
   }
 
   return (
