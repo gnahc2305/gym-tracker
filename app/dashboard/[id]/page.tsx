@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { SignInButton, SignOutButton } from "@/components/buttons";
 import Link from "next/link";
-import { revalidatePath } from "next/cache";
 
 
 interface Props {
