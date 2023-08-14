@@ -35,4 +35,4 @@ There was also a problem with the page sending too many redirects, which would i
 
 When you are done, you can sign out and all of your workouts will still be there when you come back.
 
-### Live Website: 
+### Live Website: https://gym-tracker-adzb0h5se-gnahc2305.vercel.app/
